@@ -12,7 +12,7 @@ NOTEBOOK FOR ONE SPRINT
 	> subtract 3 to 2 give -1 --- ¡DONE!
 	> the commutative property isn't met --- ¡DONE!
 
-> "2 + - 2" give 0
+> "2 + -2" give 0
 	> add 2 to -2 give 0 --- ¡DONE!
 	> subtract 2 to -5 give -7 --- ¡DONE!
 	> subtract -2 to -7 give -5 --- ¡DONE!
@@ -20,7 +20,18 @@ NOTEBOOK FOR ONE SPRINT
 > "5 + 4 * 2 / 2" give 9
 	> the string "5 + 4 * 2 / 2" fetch four operatings 
 	  and three operators: '5', '4', '2', '2', '+', '*' and '/'  --- ¡DONE!
-	> "5 + 4 * 2 / 2" give 9
+	> "5 + 4 * 2 / 2" give 9  --- ¡DONE!
+	> "2 + 2" give 4  --- ¡DONE!
+	> "2 - 2" give 0  --- ¡DONE!
+	> "4 * 2" give 8  --- ¡DONE!
+	> "4 * -2" give -8  --- ¡DONE!
+	> "-4 * 2" give -8  --- ¡DONE!
+	> "-4 * -2" give 8  --- ¡DONE!
+	> "5 + 4 - 3" give 6  --- ¡DONE!
+	> "5 + 4 / 2 - 4" give 6  --- ¡DONE!
+	> "4 / 2 - 3" give -1  --- ¡DONE!
+	> "4 / 2 - 3 + 1 + 6 / 3 - 1" give 1  --- ¡DONE!
+	> "4 / -2 + 3 + -1 + -6 / -3 - 10" give -8  --- ¡DONE!
 
 > "3 / 2" return an error message
 	> divide 2 by 2 give 1 --- ¡DONE!
