@@ -1,6 +1,6 @@
 NOTEBOOK FOR ONE SPRINT
 
-# Acceptance testing
+# Acceptance testing ######################################################
 
 > "2 + 2" give 4 
 	> add 2 to 2 give 4 --- ¡DONE!
@@ -20,18 +20,18 @@ NOTEBOOK FOR ONE SPRINT
 > "5 + 4 * 2 / 2" give 9
 	> the string "5 + 4 * 2 / 2" fetch four operatings 
 	  and three operators: '5', '4', '2', '2', '+', '*' and '/'  --- ¡DONE!
-	> "5 + 4 * 2 / 2" give 9  --- ¡DONE!
-	> "2 + 2" give 4  --- ¡DONE!
-	> "2 - 2" give 0  --- ¡DONE!
-	> "4 * 2" give 8  --- ¡DONE!
-	> "4 * -2" give -8  --- ¡DONE!
-	> "-4 * 2" give -8  --- ¡DONE!
-	> "-4 * -2" give 8  --- ¡DONE!
-	> "5 + 4 - 3" give 6  --- ¡DONE!
-	> "5 + 4 / 2 - 4" give 6  --- ¡DONE!
-	> "4 / 2 - 3" give -1  --- ¡DONE!
-	> "4 / 2 - 3 + 1 + 6 / 3 - 1" give 1  --- ¡DONE!
-	> "4 / -2 + 3 + -1 + -6 / -3 - 10" give -8  --- ¡DONE!
+	> calcule "5 + 4 * 2 / 2" give 9  --- ¡DONE!
+	> calcule "2 + 2" give 4  --- ¡DONE!
+	> calcule "2 - 2" give 0  --- ¡DONE!
+	> calcule "4 * 2" give 8  --- ¡DONE!
+	> calcule "4 * -2" give -8  --- ¡DONE!
+	> calcule "-4 * 2" give -8  --- ¡DONE!
+	> calcule "-4 * -2" give 8  --- ¡DONE!
+	> calcule "5 + 4 - 3" give 6  --- ¡DONE!
+	> calcule "5 + 4 / 2 - 4" give 6  --- ¡DONE!
+	> calcule "4 / 2 - 3" give -1  --- ¡DONE!
+	> calcule "4 / 2 - 3 + 1 + 6 / 3 - 1" give 1  --- ¡DONE!
+	> calcule "4 / -2 + 3 + -1 + -6 / -3 - 10" give -8  --- ¡DONE!
 
 > "3 / 2" return an error message
 	> divide 2 by 2 give 1 --- ¡DONE!
@@ -43,13 +43,29 @@ NOTEBOOK FOR ONE SPRINT
 	> the string "10 / -5" fetch two operatings and one operator: '10', '-5' and '/' --- ¡DONE!
 
 > "* * 4 - 2" return an error message
+	> calculator using validator --- ¡DONE!
+	> "3 + 4" is a validate expression --- ¡DONE!
+	> "4 & 3" isn't validate expression --- ¡DONE!
+	> "-3 + 4 * -5 / 1" is a validate expression --- ¡DONE!
+	> "* % / * 4 + 2" isn't validate expression --- ¡DONE!
+	> calcule "4 & 3" throws exception --- ¡DONE!
+	> calcule "1 * # 8" thwors exception --- ¡DONE!
+	> calcule "* * 4 - 2" throws exception --- ¡DONE!
+	> calcule "* % / * 4 + 2" throws exception --- ¡DONE!
 
 > "* 4 5 - 2" return an error message
+	> "4 5" throws exception
+	> "6 8 4" thwors exception
+	> "232 4 -2" throws exception
+	> "* 4 5 - 2" throws exception
+	> "+ - 342 74 - 9" throws exception
 
 > "* 4 5 - 2 - " return an error message
 
 > "*45-2-" return an error message
 
-# Ocurrences
+
+# Ocurrences ######################################################
 
 * What number is longer and which is shorter ?
+* is it one digit allow as operation?

@@ -1,5 +1,9 @@
+import re
 
 class ValidatorArithmeticExpression():
 
 	def validate(self, expression):
-		return True
+		if re.match("-*\d+ ([\+\-*/] -*\d+)+", expression):
+			return True
+		else:
+			return False

@@ -113,7 +113,7 @@ class TestCoolCalculator(unittest.TestCase):
 	def test_calculate_complex_expression_all_operations_without_parentheses_with_precendence(self):
 		self.assertEquals("11", self.cool_calc.calculate("4 - -3 * 2 / 3 + 5"))
 
-	def test_the_expression_is_invalidate(self):
+	def test_calculator_using_validator(self):
 		# we use a stub for this test
 		validator_stub = validator.ValidatorArithmeticExpression()
 		validator_mock = mox.Mox()
@@ -127,10 +127,33 @@ class TestCoolCalculator(unittest.TestCase):
 		validator_mock.UnsetStubs()
 		validator_mock.VerifyAll()
 
+class TestValidator(unittest.TestCase):
+
+	def test_expression_is_validate(self):
+		val = validator.ValidatorArithmeticExpression()
+		self.assertTrue(val.validate("3 + 4"))
+		self.assertTrue(val.validate("-3 + 4 * -5 / 1"))
+
+	def test_expression_isnt_validate(self):
+		val = validator.ValidatorArithmeticExpression()
+		self.assertFalse(val.validate("4 & 3"))
+		self.assertFalse(val.validate("* % / * 4 + 2"))
+
+	def test_calculate_invalidate_expression_throws_exception(self):
+		cool_calc = coolcalculator.CoolCalculator(
+									analyzer.ExpresionAnalyser(),
+									validator.ValidatorArithmeticExpression())
+		self.assertRaises(SyntaxError, cool_calc.calculate, "4 & 3")
+		self.assertRaises(SyntaxError, cool_calc.calculate, "1 * # 8")
+		self.assertRaises(SyntaxError, cool_calc.calculate, "* * 4 - 2")
+		self.assertRaises(SyntaxError, cool_calc.calculate, "* % / * 4 + 2")
+
+
 
 if __name__ == "__main__":
 	suite = unittest.TestSuite()
 	suite.addTest(unittest.makeSuite(TestCalculator))
 	suite.addTest(unittest.makeSuite(TestAnalyzer))
 	suite.addTest(unittest.makeSuite(TestCoolCalculator))
+	suite.addTest(unittest.makeSuite(TestValidator))
 	unittest.TextTestRunner(verbosity=3).run(suite)
