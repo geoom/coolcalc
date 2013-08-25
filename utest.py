@@ -4,6 +4,8 @@ import calculator
 import analyzer
 import coolcalculator
 import validator
+from hanlder import FileHandler
+from persistent import ExpressionStorageManager
 
 class TestCalculator(unittest.TestCase):
 
@@ -113,6 +115,12 @@ class TestCoolCalculator(unittest.TestCase):
 	def test_calculate_complex_expression_all_operations_without_parentheses_with_precendence(self):
 		self.assertEquals("11", self.cool_calc.calculate("4 - -3 * 2 / 3 + 5"))
 
+	def test_calculate_invalidate_expression_throws_exception(self):
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "4 & 3")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "1 * # 8")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* * 4 - 2")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* % / * 4 + 2")
+
 	def test_calculator_using_validator(self):
 		# we use a stub for this test
 		validator_stub = validator.ValidatorArithmeticExpression()
@@ -139,15 +147,21 @@ class TestValidator(unittest.TestCase):
 		self.assertFalse(val.validate("4 & 3"))
 		self.assertFalse(val.validate("* % / * 4 + 2"))
 
-	def test_calculate_invalidate_expression_throws_exception(self):
-		cool_calc = coolcalculator.CoolCalculator(
-									analyzer.ExpresionAnalyser(),
-									validator.ValidatorArithmeticExpression())
-		self.assertRaises(SyntaxError, cool_calc.calculate, "4 & 3")
-		self.assertRaises(SyntaxError, cool_calc.calculate, "1 * # 8")
-		self.assertRaises(SyntaxError, cool_calc.calculate, "* * 4 - 2")
-		self.assertRaises(SyntaxError, cool_calc.calculate, "* % / * 4 + 2")
+class TestExpressionStorageManager(unittest.TestCase):
 
+	def test_the_expression_is_saved_on_sytem_file(self):
+		file_hanler_stub = FileHandler()
+		file_handler_mock = mox.Mox()
+
+		file_handler_mock.StubOutWithMock(file_hanler_stub, 'save')
+		file_hanler_stub.save("2 + 7;9")
+		file_handler_mock.ReplayAll()
+
+		exp_storage = ExpressionStorageManager(file_hanler_stub)
+		exp_storage.insert("2 + 7", "9")
+
+		file_handler_mock.UnsetStubs()
+		file_handler_mock.VerifyAll()
 
 
 if __name__ == "__main__":
@@ -156,4 +170,5 @@ if __name__ == "__main__":
 	suite.addTest(unittest.makeSuite(TestAnalyzer))
 	suite.addTest(unittest.makeSuite(TestCoolCalculator))
 	suite.addTest(unittest.makeSuite(TestValidator))
+	suite.addTest(unittest.makeSuite(TestExpressionStorageManager))
 	unittest.TextTestRunner(verbosity=3).run(suite)

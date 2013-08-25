@@ -2,7 +2,7 @@ NOTEBOOK FOR ONE SPRINT
 
 # Acceptance testing ######################################################
 
-> "2 + 2" give 4 
+> "2 + 2" give 4
 	> add 2 to 2 give 4 --- ¡DONE!
 	> the commutative property is met --- ¡DONE!
 	> string "2 + 2" have two numbers and one operator: '2', '2' and '+' --- ¡DONE!
@@ -64,8 +64,17 @@ NOTEBOOK FOR ONE SPRINT
 
 > "*45-2-" return an error message
 
+> "cuatro mas 3" return an error message
+
+> The entered expressions together with its result are saved on file system
+	# the file by default is named "coocalculator.txt" and placed on project's local path
+	
+	> the expression "2 + 7" is saved as "'2 + 7';9;" on file. --- ¡DONE!
+
 
 # Ocurrences ######################################################
 
 * What number is longer and which is shorter ?
 * is it one digit allow as operation?
+* does the user can specify the file's path ?
+* what happens if can not be created files on file system due to lack of permissions ? 
