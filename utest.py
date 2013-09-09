@@ -4,8 +4,8 @@ import calculator
 import analyzer
 import coolcalculator
 import validator
-from hanlder import FileHandler
-from persistent import ExpressionStorageManager
+from handler import FileHandler
+from storage import ExpressionStorageManagerToFile
 
 class TestCalculator(unittest.TestCase):
 
@@ -157,11 +157,12 @@ class TestExpressionStorageManager(unittest.TestCase):
 		file_hanler_stub.save("2 + 7;9")
 		file_handler_mock.ReplayAll()
 
-		exp_storage = ExpressionStorageManager(file_hanler_stub)
+		exp_storage = ExpressionStorageManagerToFile(file_hanler_stub)
 		exp_storage.insert("2 + 7", "9")
 
 		file_handler_mock.UnsetStubs()
 		file_handler_mock.VerifyAll()
+
 
 
 if __name__ == "__main__":
