@@ -120,6 +120,23 @@ class TestCoolCalculator(unittest.TestCase):
 		self.assertRaises(SyntaxError, self.cool_calc.calculate, "1 * # 8")
 		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* * 4 - 2")
 		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* % / * 4 + 2")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "4 5")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "6 8 4")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "232 4 -2")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* 4 5 - 2")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "+ - 342 74 - 9")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "3 + 2 -3")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "3 + 4 -")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "+ 2 / 2 +")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "1 * 8 * - +")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* + - /")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "* 4 5 - 2 - ")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "2+3-4*3/1")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "7-+5 4 * 3")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "*45-2-")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "cuatro mas 3")
+		self.assertRaises(SyntaxError, self.cool_calc.calculate, "5")
+
 
 	def test_calculator_using_validator(self):
 		# we use a stub for this test

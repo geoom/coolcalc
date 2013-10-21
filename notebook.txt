@@ -50,21 +50,34 @@ NOTEBOOK FOR ONE SPRINT
 	> "* % / * 4 + 2" isn't validate expression --- ¡DONE!
 	> calcule "4 & 3" throws exception --- ¡DONE!
 	> calcule "1 * # 8" thwors exception --- ¡DONE!
-	> calcule "* * 4 - 2" throws exception --- ¡DONE!
 	> calcule "* % / * 4 + 2" throws exception --- ¡DONE!
+	> calcule "* * 4 - 2" throws exception --- ¡DONE!
 
 > "* 4 5 - 2" return an error message
-	> "4 5" throws exception
-	> "6 8 4" thwors exception
-	> "232 4 -2" throws exception
-	> "* 4 5 - 2" throws exception
-	> "+ - 342 74 - 9" throws exception
+	> "4 5" throws exception --- ¡DONE!
+	> "6 8 4" thwors exception --- ¡DONE!
+	> "232 4 -2" throws exception --- ¡DONE!
+	> "+ - 342 74 - 9" throws exception --- ¡DONE!
+	> "3 + 2 -3" throws exception --- ¡DONE!
+	> "* 4 5 - 2" throws exception --- ¡DONE!
 
 > "* 4 5 - 2 - " return an error message
+	> "3 + 4 -" throws exception --- ¡DONE!
+	> "+ 2 / 2 +" throws exception --- ¡DONE!
+	> "1 * 8 * - +" throws exception --- ¡DONE!
+	> "* + - /" throws exception --- ¡DONE!
+	> "* 4 5 - 2 - " throws exception --- ¡DONE!
 
 > "*45-2-" return an error message
+	> "2+3-4*3/1" throws exception --- ¡DONE!
+	> "7-+5 4 * 3" throws exception --- ¡DONE!
+	> "*45-2-" throws exception --- ¡DONE!
 
 > "cuatro mas 3" return an error message
+	> "cuatro mas 3" throws exception --- ¡DONE!
+
+> "5" return an error message
+	> "5" throws exception --- ¡DONE!
 
 > The entered expressions together with its result are saved on file system
 	# the file by default is named "cool_calculator.txt" and placed on project's local path
