@@ -1,9 +1,9 @@
-import calculator
+import arithmetic
 
-class CoolCalculator():
+class Calculator():
 
 	def __init__(self, parser, validator):
-		self.calc = calculator.Calculator()
+		self.calc = arithmetic.Arithmetic()
 		self.parser = parser
 		self.validator = validator
 

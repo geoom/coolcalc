@@ -1,7 +1,7 @@
 
-#Coolcalculator
+#Coolcalc
 
-cool calculator it's one simple lexical analyzer to calculate arithmetic operations
+CoolCalc is a simple lexical analyzer to calculate arithmetic operations. In really, this app is an pilot project that allows me to play with ATDD.
 
 ## Running on development enviroment
 

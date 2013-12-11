@@ -1,13 +1,13 @@
 # -*- coding: utf-8 *-*
 import wx, os
-import coolcalculator
+import calculator
 import analyzer
 import validator
  
 class MainWindow(wx.Frame):
 
     def __init__(self, parent, title):
-         
+
         wx.Frame.__init__(self, parent, title=title, size=(400,100))
                   
         file_menu 	= wx.Menu() 
@@ -46,7 +46,7 @@ class MainWindow(wx.Frame):
     def OnClick(self,event):
     	expression = self.txtOperation.GetValue()
 
-    	cool_cal 	= coolcalculator.CoolCalculator(
+    	cool_cal 	= calculator.Calculator(
 							analyzer.ExpresionAnalyser(),
 							validator.ValidatorArithmeticExpression())
 
@@ -67,8 +67,3 @@ class MainWindow(wx.Frame):
  
     def OnExit(self,e):
         self.Close(True)
-
-
-app = wx.App(False)
-frame = MainWindow(None, "CoolCalculator")
-app.MainLoop()

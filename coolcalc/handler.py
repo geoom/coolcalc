@@ -4,7 +4,7 @@ import sys
 
 class FileHandler():
 
-	file_name = "cool_calculator.txt"
+	file_name = "cool_calc.txt"
 
 	def save(self, text_to_save):
 		f = open(self.file_name, 'a')
@@ -14,7 +14,7 @@ class FileHandler():
 class DatabaseHandler:
 
     def __init__(self, db_host='localhost', db_user='root', db_pass='root',
-                 db_name='coolcalculator'):
+                 db_name='coolcalc'):
         self.db_host = db_host
         self.db_user = db_user
         self.db_pass = db_pass

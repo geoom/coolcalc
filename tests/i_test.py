@@ -1,8 +1,11 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__).strip('tests'))
+
 import unittest
 import os
-from handler import FileHandler, DatabaseHandler
-from storage import ExpressionStorageManagerToFile
-from model import Operation
+from coolcalc.handler import FileHandler, DatabaseHandler
+from coolcalc.storage import ExpressionStorageManagerToFile
+from coolcalc.entity import Operation
 
 class TestFileSystemStorageManager(unittest.TestCase):
 

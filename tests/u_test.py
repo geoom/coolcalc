@@ -1,16 +1,19 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__).strip('tests'))
+
 import unittest
 import mox
-import calculator
-import analyzer
-import coolcalculator
-import validator
-from handler import FileHandler
-from storage import ExpressionStorageManagerToFile
+from coolcalc import analyzer
+from coolcalc import calculator
+from coolcalc import validator
+from coolcalc import arithmetic
+from coolcalc.handler import FileHandler
+from coolcalc.storage import ExpressionStorageManagerToFile
 
-class TestCalculator(unittest.TestCase):
+class TestArithmetic(unittest.TestCase):
 
 	def setUp(self):
-		self.calc = calculator.Calculator()
+		self.calc = arithmetic.Arithmetic()
 
 	def tearDown(self):
 		pass
@@ -87,10 +90,10 @@ class TestAnalyzer(unittest.TestCase):
 							'operators': ['+', '*', '/']}, 
 							self.expAnalyzer.parse("5 + 4 * 2 / 2"))
 
-class TestCoolCalculator(unittest.TestCase):
+class TestCalculator(unittest.TestCase):
 
 	def setUp(self):
-		self.cool_calc = coolcalculator.CoolCalculator(
+		self.cool_calc = calculator.Calculator(
 							analyzer.ExpresionAnalyser(),
 							validator.ValidatorArithmeticExpression())
 	def tearDown(self):
@@ -145,7 +148,7 @@ class TestCoolCalculator(unittest.TestCase):
 		validator_mock.StubOutWithMock(validator_stub, 'validate')
 		validator_stub.validate("2 ^ 3").AndReturn(False)
 		validator_mock.ReplayAll()
-		cool_calc = coolcalculator.CoolCalculator(
+		cool_calc = calculator.Calculator(
 						analyzer.ExpresionAnalyser(),
 						validator_stub)
 		self.assertRaises(SyntaxError, cool_calc.calculate, "2 ^ 3")
@@ -181,12 +184,12 @@ class TestExpressionStorageManager(unittest.TestCase):
 		file_handler_mock.VerifyAll()
 
 
-
 if __name__ == "__main__":
+	# print os.path.dirname(__file__)
 	suite = unittest.TestSuite()
-	suite.addTest(unittest.makeSuite(TestCalculator))
+	suite.addTest(unittest.makeSuite(TestArithmetic))
 	suite.addTest(unittest.makeSuite(TestAnalyzer))
-	suite.addTest(unittest.makeSuite(TestCoolCalculator))
+	suite.addTest(unittest.makeSuite(TestCalculator))
 	suite.addTest(unittest.makeSuite(TestValidator))
 	suite.addTest(unittest.makeSuite(TestExpressionStorageManager))
 	unittest.TextTestRunner(verbosity=3).run(suite)

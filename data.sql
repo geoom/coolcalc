@@ -1,8 +1,8 @@
 
-CREATE SCHEMA IF NOT EXISTS `coolcalculator`;
-USE `coolcalculator`;
+CREATE SCHEMA IF NOT EXISTS `coolcalc`;
+USE `coolcalc`;
 
-DROP TABLE IF EXISTS `coolcalculator`;
+DROP TABLE IF EXISTS `coolcalc`;
 CREATE TABLE IF NOT EXISTS `operations` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`expression` VARCHAR(100) NOT NULL,
